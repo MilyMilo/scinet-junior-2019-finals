@@ -3,8 +3,13 @@ services:
   web:
     build: machine
     ports:
-      - "80:8000"
-      - "65000:65000"
+      - "80"
+      - "65000"
+
+    sysctls:
+      - net.ipv4.ip_unprivileged_port_start=0
+
+    network_mode: "host"
     hostname: "rath-jp"
 
   alice:

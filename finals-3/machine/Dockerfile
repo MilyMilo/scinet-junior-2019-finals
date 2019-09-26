@@ -4,7 +4,7 @@ RUN useradd -s /bin/bash -m kurisuhaito && \
     useradd -s /bin/bash -m takeru && \
     useradd -s /bin/bash -m nakanishi && \
     apt-get update && \
-    apt-get install vim python python3 -y
+    apt-get install vim nano python python3 netcat -y
 
 COPY --chown=kurisuhaito:kurisuhaito users/kurisuhaito/* /home/kurisuhaito/
 COPY --chown=takeru:takeru users/takeru/* /home/takeru/
@@ -17,6 +17,6 @@ RUN chmod 744 /home/kurisuhaito/* && \
     chmod 744 /home/takeru/* && \
     chown -R www-data:www-data /var/www/html
 
-EXPOSE 8000 65000
+EXPOSE 80 65000
 
 USER nakanishi
