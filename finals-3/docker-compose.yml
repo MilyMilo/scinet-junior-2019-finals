@@ -1,0 +1,12 @@
+version: "3"
+services:
+  web:
+    build: machine
+    ports:
+      - "80:8000"
+      - "61999:61999"
+
+  alice:
+    build: alice
+    ports:
+      - "36194:36194"
