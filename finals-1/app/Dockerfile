@@ -1,7 +1,7 @@
 FROM python:3.7.4-alpine
 
 RUN apk update \
-  && apk add --update --no-cache git openssh-client \
+  && apk add --update --no-cache git openssh-client bash \
   && pip install pipenv \
   && addgroup -S -g 1001 fred \
   && adduser -s /bin/sh -S -D -h /home/fred -u 1001 -G fred fred  \
