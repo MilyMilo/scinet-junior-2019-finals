@@ -4,6 +4,7 @@ services:
     build: app
     ports:
       - "80:8000"
+    hostname: "empire"
 
   smb:
     build: smb

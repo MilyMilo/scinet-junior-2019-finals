@@ -5,6 +5,7 @@ services:
     ports:
       - "80:8000"
       - "61999:61999"
+    hostname: "rath-jp"
 
   alice:
     build: alice
