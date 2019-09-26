@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin Panel
+{% endblock title %}
+
+{% block content %}
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-6 mt-sm-4">
+      <div class="card" style="height: 70vh; overflow-y: auto;">
+        <h5 class="card-header">Submissions</h5>
+
+        <div class="card-body">
+          {% for submission in submissions %}
+            {% include 'partials/_submission.html' %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mt-sm-4 mb-sm-5">
+      <div class="card" style="height: 70vh; overflow-y: auto;">
+        <h5 class="card-header">Attachments</h5>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            {% for attachment in attachments %}
+              <li class="list-group-item">{{ attachment }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="card-footer text-muted">
+          {{ submissions_path }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <!-- TODO: Secure this /F. -->
+        <h5 class="card-header">Python attachment tester <span class="text-danger font-weight-bolder">(experimental)</span></h5>
+         <div class="card-body">
+          <p>A lot of people have been sending me haunted python scripts to validate, so I created this automatic tester, beware it's experimental!</>
+          <form method="POST" action="/admin/run" class="form-inline my-2">
+            <div class="input-group w-100">
+              <div class="input-group-prepend">
+                <div class="input-group-text">python3</div>
+              </div>
+              <select type="text" class="form-control" name="choice">
+                {% for attachment in attachments %}
+                  <option value="{{ attachment | b64encode }}">{{ attachment }}</option>
+                {% endfor %}
+              </select>
+              <div class="input-group-append">
+                <input class="btn btn-outline-info" type="submit" value="Test"></input>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

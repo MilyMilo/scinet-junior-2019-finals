@@ -1,0 +1,17 @@
+version: "3"
+services:
+  app:
+    build: app
+    ports:
+      - "80:8000"
+
+  ftp:
+    build: ftp
+    ports:
+      - "2121"
+      - "9000-9010"
+    # use host network because ftp goes mad when natted, even in passive mode
+    # 13 - after you're done update the counter with hours wasted on trying stuff until it works
+    # this prolly requires some more docker magic or just python inside the container to set GW address as the masq address
+    # but I ain't got time for that ¯\_(ツ)_/¯
+    network_mode: host

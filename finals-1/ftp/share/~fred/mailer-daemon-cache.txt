@@ -1,0 +1,14 @@
+FROM: Mail Delivery Subsystem <mailer-daemon@mystery.inc>
+ERROR: Address not found
+DESC: Your message wasn't delivered, because the domain mystery.inc couldn't be found. Check for typos or unnecessary spaces and try again.
+RESP: DNS Error: 19346035 DNS type 'mx' lookup of mystery.inc responded with code NXDOMAIN Domain name not found: mystery.inc
+CONTENT:
+---------BOUNDARY----------
+Hey D.
+
+Scoob changed your password to the Mystery Inc. admin panel but I've reset it now, this is you new password:
+ZekGx2RBrYGFZHvD
+
+Sincerly, 
+F.
+---------BOUNDARY----------

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Test results
+{% endblock title %}
+
+{% block head %}
+<style>
+.code {
+  background-color: #E9ECEF;
+  padding: 1em 3em;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+</style>
+{% endblock head %}
+
+{% block content %}
+<div class="container mt-4">
+  <h4 class="text-white">Test results:</h4>
+  <pre class="code">{{ output }}</pre>
+</div>
+{% endblock content %}

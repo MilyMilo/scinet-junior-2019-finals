@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+The Gang
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+  {% include 'partials/_flash.html' %}
+  <div class="jumbotron bg-scooby-green">
+    <h1 class="display-4 font-weight-bolder">Mystery Inc.</h1>
+    <p class="lead">We are a group of teenage investigators who have solved high profile cases all around the world. Although we've been working since 1969 we did not age at all.</p>
+    <hr class="my-3">
+    <img src="/img/gang.png" alt="That's us" class="img-fluid">
+    <div class="container-fluid mt-3">
+      <small class="mb-2 mt-1 lead">That's us: scooby-doo, shaggy, velma, fred and daphne</small>
+      <a class="btn btn-primary btn-lg bg-scooby-orange float-right" href="/contact">Contact us!</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}

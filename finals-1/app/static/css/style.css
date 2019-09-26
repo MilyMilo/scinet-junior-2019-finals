@@ -1,0 +1,25 @@
+/* 
+#2F7693 
+#EE4831
+#A8ED66
+*/
+
+body {
+  background-color: #2f7693;
+}
+
+.bg-scooby-green {
+  background-color: #a8ed66;
+}
+
+.text-scooby-orange {
+  color: #ee4831;
+}
+
+.bg-scooby-orange {
+  background-color: #ee4831;
+}
+
+.bg-scooby-orange:hover {
+  background-color: #ad3828;
+}

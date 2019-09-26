@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact Us
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 mt-4">
+      <div class="card mx-auto" style="min-height: 720px;">
+        <div class="card-body m-md-3 text-center">
+          <h3 class="font-weight-bolder">Contact the Mystery Inc.</h3>
+          <p class="lead">If you have any questions or would like to report suspicous activity near your location please feel free to submit an inquiry using the form on this page.</p>
+          <p class="lead">You can also upload attachments like photos or python reverse shells. Please don't submit anything potentially malicious.</p>
+          <img src="/img/scooby.png" class="d-block img-fluid mx-auto mt-4" style="max-height: 250px;">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mt-4">
+      <div class="card mx-auto" style="min-height: 720px;">
+        <div class="container-fluid text-center mt-4">
+          <h3><span class="font-weight-bolder text-scooby-orange">Mystery Inc.</span> <span class="font-weight-bolder">inquiry form</span></h3>
+        </div>
+        <div class="card-body m-md-3">
+          <img src="/img/mystery_inc.jpg" class="d-block img-fluid mx-auto" style="max-height: 250px;">
+          <form action="/contact" method="POST" class="mt-1" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="name">Your name:</label>
+              <input type="text" class="form-control" name="name" id="name">
+            </div>
+            <div class="form-group">
+              <label for="text">Your inquiry:</label>
+              <textarea class="form-control" id="text" rows="3" name="inquiry"></textarea>
+            </div>
+            <div class="form-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="file-upload" name="attachment">
+                <label class="custom-file-label" for="file-upload" id="file-label">Add Attachment</label>
+              </div>
+            </div>
+            <button class="btn bg-scooby-orange btn-block text-white" type="submit">Send!</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="file-size-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="file-size-modal">The file you're trying to upload is too large.</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This file is over 2MB. Please select a different file.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn bg-scooby-orange text-white" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+<script>
+const upload = $("#file-upload");
+const label = $("#file-label");
+
+upload.on("change", e => {
+  const file = upload.prop("files")[0];
+
+  if (file.size > 2097152) {
+    $("#file-size-modal").modal("show");
+    upload
+      .wrap("<form>")
+      .closest("form")
+      .get(0)
+      .reset()
+      .unwrap();
+
+    label.text("Choose file");
+    return;
+  }
+
+  label.text(file.name);
+});
+</script>
+{% endblock js %}

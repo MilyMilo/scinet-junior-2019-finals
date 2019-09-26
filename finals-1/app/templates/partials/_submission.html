@@ -1,0 +1,11 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">From: {{ submission.name }}</h5>
+    <p class="card-text">Wrote: {{ submission.inquiry }}</p>
+    {% if submission.attachment != "" %}
+      <p class="card-text">Attachment: <span class="badge badge-info align-baseline">{{ submission.attachment | basename }}</span></p>
+    {% else %}
+      <p class="card-text">No attachment.</p>
+    {% endif %}
+  </div>
+</div>
