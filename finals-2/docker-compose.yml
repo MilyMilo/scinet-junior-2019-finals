@@ -1,0 +1,15 @@
+version: "3"
+services:
+  app:
+    build: app
+    ports:
+      - "80:8000"
+
+  smb:
+    build: smb
+    ports:
+      - "139:139"
+      - "445:445"
+    volumes:
+      - ./smb/data/admin:/opt/admin:ro
+      - ./smb/data/backup:/opt/backup:ro
