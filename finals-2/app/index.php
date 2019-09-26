@@ -27,7 +27,7 @@
         if(isset($_POST['login'])){
         $p = $_POST;
         if($p['login'] === "Vader" && $p['password'] === "darkside344") {
-            echo '<p class="centered">Power! Unlimited power!</p>';
+            echo '<p class="centered">Power! Unlimited power! Unlimited flags! - scinet{4_n3W_h0P3}</p>';
             echo '<form action="upload.php" method="post" enctype="multipart/form-data">
             <p class="centered">Select Holocron to upload:</p>
             <p class="centered"><input type="file" name="holocron" id="holocron"></p>
