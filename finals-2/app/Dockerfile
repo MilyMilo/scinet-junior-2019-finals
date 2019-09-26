@@ -6,11 +6,11 @@ COPY --chown=vader:vader . /var/www/html/
 
 ENV PORT 8000
 
-# SUID for vim, https://gtfobins.github.io/gtfobins/vim/#shell
+# SUID for cat, https://gtfobins.github.io/gtfobins/cat
 RUN apt-get update \
-    && apt-get install vim python3 -y \
-    && mv /usr/bin/vim.basic /usr/bin/vim \
-    && chmod u+s /usr/bin/vim \
+    && apt-get install nano python3 -y \
+    && ln -s /usr/bin/python3 /usr/bin/python \
+    && chmod u+s /bin/cat \
     && sed -i "s/80/$PORT/g" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf \
     && echo "scinet{1_4m_Ur_F47HeR}" >> /home/vader/flag.txt \
     && chown vader:vader /home/vader/flag.txt \
