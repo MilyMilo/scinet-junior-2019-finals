@@ -5,6 +5,6 @@ COPY . .
 
 RUN apt-get update && apt-get install netcat -y && chmod +x /app/docker-entrypoint.sh
 
-EXPOSE 36194
+EXPOSE 55555
 
 CMD ["./docker-entrypoint.sh"]

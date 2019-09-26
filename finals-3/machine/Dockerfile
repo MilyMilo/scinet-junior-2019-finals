@@ -17,6 +17,6 @@ RUN chmod 744 /home/kurisuhaito/* && \
     chmod 744 /home/takeru/* && \
     chown -R www-data:www-data /var/www/html
 
-EXPOSE 8000 61999
+EXPOSE 8000 65000
 
 USER nakanishi
